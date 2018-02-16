@@ -1,0 +1,39 @@
+﻿<Window x:Class="The_Arithmetician.EnterUserData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Arithmetician"
+        mc:Ignorable="d"
+        Title="Enter Player Information" SizeToContent="Height" Width="640" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock FontWeight="Bold" TextAlignment="Right" Text="Name"/>
+        <TextBox Name="boxName" Grid.Column="2"/>
+
+        <TextBlock FontWeight="Bold" TextAlignment="Right" Text="Age" Grid.Row="2"/>
+        <TextBox Name="boxAge" Grid.Column="2" Grid.Row="2"/>
+
+        <Grid Grid.ColumnSpan="3" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="OK" IsDefault="True" Click="OkButton_Click"/>
+            <Button Grid.Column="2" Content="Cancel" IsCancel="True" Click="CancelButton_Click"/>
+        </Grid>
+    </Grid>
+</Window>

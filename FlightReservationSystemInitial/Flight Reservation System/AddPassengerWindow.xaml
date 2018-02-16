@@ -1,0 +1,43 @@
+﻿<Window x:Class="Flight_Reservation_System.AddPassengerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flight_Reservation_System"
+        mc:Ignorable="d"
+        Title="Add a Passenger" SizeToContent="Height" Width="640" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Please enter the passenger's name" FontSize="24" Grid.ColumnSpan="3"/>
+        
+        <TextBlock FontWeight="Bold" TextAlignment="Right" Text="First Name:" Grid.Row="2"/>
+        <TextBox Name="FirstNameBox" Grid.Column="2" Grid.Row="2"/>
+
+        <TextBlock FontWeight="Bold" TextAlignment="Right" Text="Last Name:" Grid.Row="4"/>
+        <TextBox Name="LastNameBox" Grid.Column="2" Grid.Row="4"/>
+
+        <Grid Grid.ColumnSpan="3" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="Save" IsDefault="True" Click="Save_Click"/>
+            <Button Grid.Column="2" Content="Cancel" IsCancel="True" Click="Cancel_Click"/>
+        </Grid>
+    </Grid>
+</Window>

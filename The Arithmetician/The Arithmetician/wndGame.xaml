@@ -1,0 +1,46 @@
+﻿<Window x:Class="The_Arithmetician.Game"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Arithmetician"
+        mc:Ignorable="d"
+        Title="The Arithmetician" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Margin="25">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="51" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.RowSpan="5">
+            <Button Name="btnReturnToMenu" Content="Quit" Click="ReturnToMenu_Click"/>
+            <Button Name="btnStartGame" Content="Start" Click="StartGame_Click"/>
+            <Label Name="lblGameTimer" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Label Name="lblCurrentQuestion" FontSize="72" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Name="lblPreviousCorrect" FontSize="72" FontWeight="Bold" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Rectangle Fill="#404040" Grid.Column="1" Grid.RowSpan="5" Width="1" HorizontalAlignment="Center"/>
+
+        <Label Name="lblQuestion" FontSize="72" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="boxAnswer" PreviewKeyDown="Answer_PreviewKeyDown" FontSize="72" VerticalAlignment="Center" Visibility="Hidden"/>
+            <Button Name="btnSubmit" Grid.Column="2" Content="Submit" FontSize="72" Click="Submit_Click" IsDefault="True" Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

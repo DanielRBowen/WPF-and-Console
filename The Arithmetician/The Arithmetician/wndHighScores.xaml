@@ -1,0 +1,48 @@
+﻿<Window x:Class="The_Arithmetician.HighScores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Arithmetician"
+        mc:Ignorable="d"
+        Title="High Scores" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="CurrentScoreGrid" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock FontWeight="Bold" TextAlignment="Right" FontSize="72" Text="Your Score:"/>
+            <TextBlock Name="YourScoreTextBlock" Grid.Column="2" FontSize="72"/>
+
+            <TextBlock Name="HighScoreTextBlock" Grid.Row="1" Grid.ColumnSpan="3" FontSize="72"  TextAlignment="Center"/>
+        </Grid>
+
+        <DataGrid Name="HighScoresDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False"
+                  CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" Background="#C0C0C0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding User.Name}"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding User.Age}"/>
+                <DataGridTextColumn Header="Correct Answers" Binding="{Binding CorrectAnswerCount}"/>
+                <DataGridTextColumn Header="Incorrect Answers" Binding="{Binding IncorrectAnswerCount}"/>
+                <DataGridTextColumn Header="Game Duration" Binding="{Binding GameDuration}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Name="btnReturnToMenu" Grid.Row="3" Content="Return to Menu" Click="ReturnToMenu_Click"/>
+    </Grid>
+</Window>

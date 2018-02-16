@@ -1,0 +1,220 @@
+﻿<Window x:Class="Flight_Reservation_System.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flight_Reservation_System"
+        mc:Ignorable="d"
+        Title="Flight Reservation System" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="640"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Name="AirbusA380Border" Grid.RowSpan="11" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden">
+            <Grid Name="AirbusA380Grid" Margin="10" ButtonBase.Click="AirbusA380Grid_Click">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="A380" FontSize="15" FontWeight="ExtraBlack" HorizontalAlignment="Center" Grid.ColumnSpan="11"/>
+
+                <!--Row 1-->
+                <Button Name="Seat_1_A380" Background="Blue" Foreground="White" Content="1" Grid.Row="2" FontSize="24"/>
+                <Button Name="Seat_2_A380" Background="Blue" Foreground="White" Content="2" Grid.Row="2" Grid.Column="2" FontSize="24"/>
+
+                <Button Name="Seat_3_A380" Background="Blue" Foreground="White" Content="3" Grid.Row="2" Grid.Column="4" FontSize="24"/>
+                <Button Name="Seat_4_A380" Background="Blue" Foreground="White" Content="4" Grid.Row="2" Grid.Column="6" FontSize="24"/>
+
+                <Rectangle Fill="#404040" Grid.Row="4" Grid.ColumnSpan="11"/>
+
+                <!--Row 2-->
+                <Button Name="Seat_5_A380" Background="Blue" Foreground="White" Content="5" Grid.Row="6" FontSize="24"/>
+                <Button Name="Seat_6_A380" Background="Blue" Foreground="White" Content="6" Grid.Row="6" Grid.Column="2" FontSize="24"/>
+
+                <Button Name="Seat_7_A380" Background="Blue" Foreground="White" Content="7" Grid.Row="6" Grid.Column="4" FontSize="24"/>
+                <Button Name="Seat_8_A380" Background="Blue" Foreground="White" Content="8" Grid.Row="6" Grid.Column="6" FontSize="24"/>
+
+                <!--Row 3-->
+                <Button Name="Seat_9_A380" Background="Blue" Foreground="White" Content="9" Grid.Row="8" FontSize="24"/>
+                <Button Name="Seat_10_A380" Background="Blue" Foreground="White" Content="10" Grid.Row="8" Grid.Column="2" FontSize="24"/>
+
+                <Button Name="Seat_11_A380" Background="Blue" Foreground="White" Content="11" Grid.Row="8" Grid.Column="4" FontSize="24"/>
+                <Button Name="Seat_12_A380" Background="Blue" Foreground="White" Content="12" Grid.Row="8" Grid.Column="6" FontSize="24"/>
+
+                <!--Row 4-->
+                <Button Name="Seat_13_A380" Background="Blue" Foreground="White" Content="13" Grid.Row="10" FontSize="24"/>
+                <Button Name="Seat_14_A380" Background="Blue" Foreground="White" Content="14" Grid.Row="10" Grid.Column="2" FontSize="24"/>
+
+                <Button Name="Seat_15_A380" Background="Blue" Foreground="White" Content="15" Grid.Row="10" Grid.Column="4" FontSize="24"/>
+                <Button Name="Seat_16_A380" Background="Blue" Foreground="White" Content="16" Grid.Row="10" Grid.Column="6" FontSize="24"/>
+            </Grid>
+        </Border>
+        
+        <Border Name="Boeing767Border" Grid.RowSpan="11" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden">
+            <Grid Name="Boeing767Grid" Margin="10" ButtonBase.Click="Boeing767Grid_Click">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="767" FontSize="15" FontWeight="ExtraBlack" HorizontalAlignment="Center" Grid.ColumnSpan="11"/>
+
+                <!--Row 1-->
+                <Button Name="Seat_1_767" Background="Blue" Foreground="White" Content="1" Grid.Row="2" FontSize="24"/>
+                <Button Name="Seat_2_767" Background="Blue" Foreground="White" Content="2" Grid.Row="2" Grid.Column="2" FontSize="24"/>
+                <Button Name="Seat_3_767" Background="Blue" Foreground="White" Content="3" Grid.Row="2" Grid.Column="4" FontSize="24"/>
+
+                <Button Name="Seat_4_767" Background="Blue" Foreground="White" Content="4" Grid.Row="2" Grid.Column="6" FontSize="24"/>
+                <Button Name="Seat_5_767" Background="Blue" Foreground="White" Content="5" Grid.Row="2" Grid.Column="8" FontSize="24"/>
+                <Button Name="Seat_6_767" Background="Blue" Foreground="White" Content="6" Grid.Row="2" Grid.Column="10" FontSize="24"/>
+
+                <Rectangle Fill="#404040" Grid.Row="4" Grid.ColumnSpan="11"/>
+
+                <!--Row 2-->
+                <Button Name="Seat_7_767" Background="Blue" Foreground="White" Content="7" Grid.Row="6" FontSize="24"/>
+                <Button Name="Seat_8_767" Background="Blue" Foreground="White" Content="8" Grid.Row="6" Grid.Column="2" FontSize="24"/>
+                <Button Name="Seat_9_767" Background="Blue" Foreground="White" Content="9" Grid.Row="6" Grid.Column="4" FontSize="24"/>
+
+                <Button Name="Seat_10_767" Background="Blue" Foreground="White" Content="10" Grid.Row="6" Grid.Column="6" FontSize="24"/>
+                <Button Name="Seat_11_767" Background="Blue" Foreground="White" Content="11" Grid.Row="6" Grid.Column="8" FontSize="24"/>
+                <Button Name="Seat_12_767" Background="Blue" Foreground="White" Content="12" Grid.Row="6" Grid.Column="10" FontSize="24"/>
+
+                <!--Row 3-->
+                <Button Name="Seat_13_767" Background="Blue" Foreground="White" Content="13" Grid.Row="8" FontSize="24"/>
+                <Button Name="Seat_14_767" Background="Blue" Foreground="White" Content="14" Grid.Row="8" Grid.Column="2" FontSize="24"/>
+                <Button Name="Seat_15_767" Background="Blue" Foreground="White" Content="15" Grid.Row="8" Grid.Column="4" FontSize="24"/>
+
+                <Button Name="Seat_16_767" Background="Blue" Foreground="White" Content="16" Grid.Row="8" Grid.Column="6" FontSize="24"/>
+                <Button Name="Seat_17_767" Background="Blue" Foreground="White" Content="17" Grid.Row="8" Grid.Column="8" FontSize="24"/>
+                <Button Name="Seat_18_767" Background="Blue" Foreground="White" Content="18" Grid.Row="8" Grid.Column="10" FontSize="24"/>
+
+                <!--Row 4-->
+                <Button Name="Seat_19_767" Background="Blue" Foreground="White" Content="19" Grid.Row="10" FontSize="24"/>
+                <Button Name="Seat_20_767" Background="Blue" Foreground="White" Content="20" Grid.Row="10" Grid.Column="2" FontSize="24"/>
+                <Button Name="Seat_21_767" Background="Blue" Foreground="White" Content="21" Grid.Row="10" Grid.Column="4" FontSize="24"/>
+
+                <Button Name="Seat_22_767" Background="Blue" Foreground="White" Content="22" Grid.Row="10" Grid.Column="6" FontSize="24"/>
+                <Button Name="Seat_23_767" Background="Blue" Foreground="White" Content="23" Grid.Row="10" Grid.Column="8" FontSize="24"/>
+                <Button Name="Seat_24_767" Background="Blue" Foreground="White" Content="24" Grid.Row="10" Grid.Column="10" FontSize="24"/>
+            </Grid>
+        </Border>
+        
+        <GroupBox Grid.Column="2" Grid.ColumnSpan="3">
+            <GroupBox.Header>
+                <Label Content="Passenger Information"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="290"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>    
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                
+                <Label Content="Choose Flight:" FontSize="15"/>
+                <Label Content="Choose Passenger:" FontSize="15" Grid.Row="2"/>
+                <Label Content="Passenger's Seat:" FontSize="15" Grid.Row="4"/>
+
+                <ComboBox Name="ChooseFlightComboBox" Grid.Column="2" SelectionChanged="ChooseFlightComboBox_SelectionChanged"/>
+                <ComboBox Name="ChoosePassengerComboBox" Grid.Column="2" Grid.Row="2" IsEnabled="False" SelectionChanged="ChoosePassengerComboBox_SelectionChanged"/>
+                <Border Grid.Column="2" Grid.Row="4" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock Name="PassengerSeatTextBlock" IsEnabled="False"/>
+                </Border>
+            </Grid>
+        </GroupBox>
+
+        <Button Name="AddPassengerButton" Content="Add Passenger" Grid.Column="2" Grid.Row="4" Click="AddPassenger_Click" IsEnabled="False"/>
+        <Button Name="ChangeSeatButton" Content="Change Seat" Grid.Column="4" Grid.Row="2" Click="ChangeSeat_Click" IsEnabled="False"/>
+        <Button Name="DeletePassengerButton" Content="Delete Passenger" Grid.Column="4" Grid.Row="4" Click="DeletePassenger_Click" IsEnabled="False"/>
+
+        <GroupBox Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="3">
+            <GroupBox.Header>
+                <Label Content="Color Key"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <TextBlock Background="Red"/>
+                <TextBlock Background="Blue" Grid.Row="2"/>
+                <TextBlock Background="Green" Grid.Row="4"/>
+                <Label Content="Seat is taken" FontSize="24" Grid.Column="2"/>
+                <Label Content="Seat is empty" FontSize="24" Grid.Column="2" Grid.Row="2"/>
+                <Label Content="Selected Passengers Seat" FontSize="24" Grid.Column="2" Grid.Row="4"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

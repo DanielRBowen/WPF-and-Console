@@ -1,0 +1,48 @@
+﻿<Window x:Class="The_Arithmetician.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Arithmetician"
+        mc:Ignorable="d"
+        Title="The Arithmetician" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid Name="MenuGrid" Grid.Row="2" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnPlayGame" Grid.Row="0" Content="New Game" Click="PlayGame_Click"/>
+            <Button Name="btnEditPlayerInfo" Grid.Row="2" Content="Enter Player Information" Click="EditPlayerInfo_Click"/>
+            <Button Name="btnHighScores" Grid.Row="4" Content="High Scores" Click="HighScores_Click"/>
+        </Grid>
+
+        <Grid Name="GameTypeGrid" Grid.Row="2" HorizontalAlignment="Center" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Content="Addition" Click="AdditionButton_Click"/>
+            <Button Grid.Row="2" Content="Subtraction" Click="SubtractionButton_Click"/>
+            <Button Grid.Row="4" Content="Multiplication" Click="MultiplicationButton_Click"/>
+            <Button Grid.Row="6" Content="Division" Click="DivisionButton_Click"/>
+            <Button Grid.Row="8" Content="Cancel" IsCancel="True" Click="CancelButton_Click"/>
+        </Grid>
+    </Grid>
+</Window>

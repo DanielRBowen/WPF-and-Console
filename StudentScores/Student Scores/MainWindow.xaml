@@ -1,0 +1,182 @@
+﻿<Window x:Class="Student_Scores.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Student_Scores"
+        mc:Ignorable="d"
+        Title="Scores" Height="800" Width="840" WindowStartupLocation="CenterScreen">
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="415"/>
+			<ColumnDefinition Width="10"/>
+			<ColumnDefinition Width="150"/>
+			<ColumnDefinition Width="10"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+        
+        
+		<GroupBox Grid.Row="0">
+			<GroupBox.Header>
+				<Label Content="Counts"/>
+			</GroupBox.Header>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="32.5"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="141"/>
+					<ColumnDefinition Width="120"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Grid.Row="0" Grid.Column="0" Content="Number of Students:"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="Number of assignments:"/>
+				<TextBox Name="boxNumStudents" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto"/>
+				<TextBox Name="boxNumAssignments" Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto"/>
+				<Button Name="btnSubmitCounts" Content="Submit Counts" Grid.Row="0" Grid.Column="3" Click="btnSubmitCounts_Click" IsDefault="True"/>
+			</Grid>
+		</GroupBox>
+        
+		<Button Name="btnResetScores" Content="Reset Scores" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Click="btnResetScores_Click" FontSize="24" IsCancel="True"/>
+
+        <!-- add another button on the form that says “Output to file”.  This button will be located next to the “Display Scores” button. -->
+        <GroupBox Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3">
+            <GroupBox.Header>
+                <Label Content="Output to file"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>                  
+                </Grid.ColumnDefinitions>
+                
+                <Label Name="WritingToFileLabel" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+
+                <Label Content="File Name:" Grid.Row="0" FontSize="14"/>
+                <TextBox Name="FileNameTextBox" Text="C:\Users\Public\Scores.txt" Grid.Row="0" Grid.Column="2" FontSize="14"/>
+            </Grid>
+        </GroupBox>
+
+        <Button Name="OutputToFileButton" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="3" Content="Output to file" Click="OutputToFileButton_Click"/>
+
+        <!-- Save to JSON-->
+        <GroupBox Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3">
+            <GroupBox.Header>
+                <Label Content="Save Scores to JSON"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Name="SaveJsonScoresFromFileButton" Content="Save Scores to JSON" Click="SaveJsonScoresFromFileButton_Click" />
+                <TextBox Name="SaveJsonFileNameTextBox" Text="C:\Users\Public\Scores.json" Grid.Row="2"/>
+            </Grid>
+        </GroupBox>
+        
+        <!-- Load from file -->
+        <GroupBox  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3">
+            <GroupBox.Header>
+                <Label Content="Load Scores from JSON"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Name="LoadScoresFromFileButton" Content="Load Scores from JSON" Click="LoadScoresFromFileButton_Click"/>
+                <TextBox Name="LoadFileNameTextBox" Text="C:\Users\Public\Scores.json" Grid.Row="2"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2">
+			<GroupBox.Header>
+				<Label Content="Navigate"/>
+			</GroupBox.Header>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Button Name="btnFirstStudent" Content="First Student" Grid.Column="0" Click="btnFirstStudent_Click" />
+				<Button Name="btnPrevStudent" Content="Prev Student" Grid.Column="1" Click="btnPrevStudent_Click" />
+				<Button Name="btnNextStudent" Content="Next Student" Grid.Column="2" Click="btnNextStudent_Click"/>
+				<Button Name="btnLastStudent" Content="Last Student" Grid.Column="3" Click="btnLastStudent_Click"/>
+			</Grid>
+		</GroupBox>
+        
+        
+		<GroupBox Grid.Row="4">
+			<GroupBox.Header>
+				<Label Content="Student Info"/>
+			</GroupBox.Header>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Name="lblStudentInfo" Grid.Column="0"/>
+				<TextBox Name="boxStudentInfo" Grid.Column="1"/>
+				<Button Name="btnSaveName" Content="Save Name" Grid.Column="2" Click="btnSaveName_Click"/>
+			</Grid>
+		</GroupBox>
+        
+        
+		<GroupBox Grid.Row="6">
+			<GroupBox.Header>
+				<Label Content="Student Assignment Score"/>
+			</GroupBox.Header>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="32.5"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="185"/>
+					<ColumnDefinition Width="107"/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Label Name="lblEnterANumber" Grid.Row="0" Grid.Column="0" Content="Enter Assignment Number:"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="Assignment Score:"/>
+				<TextBox Name="boxANumber" Grid.Row="0" Grid.Column="1"/>
+				<TextBox Name="boxAScore" Grid.Row="1" Grid.Column="1"/>
+				<Button Name="btnSaveScore" Content="Save Score" Grid.Row="0" Grid.Column="2" Click="btnSaveScore_Click"/>
+			</Grid>
+		</GroupBox>
+        
+        
+		<Label Name="lblError" Content="ErrorLabel" Visibility="Hidden" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="3"/>
+		<Button Name="btnDisplayScores" Content="Display scores" Grid.Row="8" Click="btnDisplayScores_Click"/>
+		<TextBox Name="boxScores" Grid.Row="10" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+	</Grid>
+</Window>
