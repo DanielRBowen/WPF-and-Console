@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>The Arithmetician</name>
+    </assembly>
+    <members>
+        <member name="T:The_Arithmetician.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.ArithmeticianGame">
+            <summary>
+            Game logic for a Arithmetician game.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.ArithmeticianGame.CurrentQuestion">
+            <summary>
+            The current question
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.ArithmeticianGame.Stopwatch">
+            <summary>
+            The time when the game was played
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.ArithmeticianGame.GameTimer">
+            <summary>
+            The timer which times how long the game when on
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.ArithmeticianGame.CurrentUser">
+            <summary>
+            The current user who is playing the game
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.ArithmeticianGame.GameType">
+            <summary>
+            The game type of the current game.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.ArithmeticianGame.GameScore">
+            <summary>
+            Contains the final score of the game
+            </summary>
+        </member>
+        <member name="F:The_Arithmetician.ArithmeticianGame.GameRandom">
+            <summary>
+            The rng that the game uses
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.#ctor(The_Arithmetician.User,The_Arithmetician.GameType)">
+            <summary>
+            Constructor which can initialize the current user.
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.GenerateQuestion">
+            <summary>
+            Generates a new question based
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.GenerateDivisionQuestion">
+            <summary>
+            Generates a Division Question which isn't difficult 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.GenerateMultiplicationQuestion">
+            <summary>
+            Generates a Multiplication Question which isn't difficult 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.GenerateAdditionQuestion">
+            <summary>
+            Generates a Addition Question which isn't difficult 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.GenerateSubtractionQuestion">
+            <summary>
+            Generates a Subtraction Question which isn't difficult 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.ArithmeticianGame.CheckAnswer(System.String,System.Int32)">
+            <summary>
+            Returns true if the answer gets the question right.
+            </summary>
+            <param name="question"></param>
+            <param name="answer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:The_Arithmetician.GameType">
+            <summary>
+            The game type of the game that a user selects
+            </summary>
+        </member>
+        <member name="F:The_Arithmetician.GameType.Addition">
+            <summary>
+            During an addition game. The player will add the two operands.
+            </summary>
+        </member>
+        <member name="F:The_Arithmetician.GameType.Subtraction">
+            <summary>
+            During subtraction game. The player will subtract the two operands.
+            </summary>
+        </member>
+        <member name="F:The_Arithmetician.GameType.Multiplication">
+            <summary>
+            During an multiplication game. The player will multiply the two operands.
+            </summary>
+        </member>
+        <member name="F:The_Arithmetician.GameType.Division">
+            <summary>
+            During an division game. The player will divide two operands.
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.HighScores">
+            <summary>
+            Interaction logic for wndHighScores.xaml
+            </summary>
+            <summary>
+            HighScores
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.HighScores.User">
+            <summary>
+            The user who is currently viewing the high scores
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.HighScores.Top10Scores">
+            <summary>
+            Contains the top ten scores.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.HighScores.FanfareSoundPlayer">
+            <summary>
+            Plays congratulatory music when score is over 5
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.HighScores.GameOverSoundPlayer">
+            <summary>
+            Plays failure music when the score is less than 6
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.HighScores.HighScoresFilePath">
+            <summary>
+            The path where the high scores data is.
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.#ctor">
+            <summary>
+            Initializes the high scores
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.#ctor(The_Arithmetician.User)">
+            <summary>
+            Initializes the high scores with a user.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.#ctor(The_Arithmetician.User,The_Arithmetician.Score)">
+            <summary>
+            Initializes the high scores. Called when the user finishes a game.
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.ShowErrorMessage(System.Exception)">
+            <summary>
+            Shows an error message of the exception. Used to catch event errors.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.ReturnToMenu_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Closes the high scores window when clicked
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the closing. Stops the music and shows the main window.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.HighScores.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.Score">
+            <summary>
+            The score of an arithmetician game.
+            Contains the User data, correct answer count, incorrect answer count, and the game duration.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Score.User">
+            <summary>
+            The user who has the score
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Score.CorrectAnswerCount">
+            <summary>
+            Number of Right Answers
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Score.IncorrectAnswerCount">
+            <summary>
+            Number of Wrong Answers
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Score.GameDuration">
+            <summary>
+            How long the game took
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.Scores">
+            <summary>
+            The “Scores” class will be used to keep track of the top ten high scores.  
+            This class should have the current score passed into it, and it should sort the top ten scores.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Scores.Top10Scores">
+            <summary>
+            Contains the top Ten Scores
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.Scores.TryAddNewScore(The_Arithmetician.Score)">
+            <summary>
+            Try to add a new score to the Top 10 Scores list.
+            The high score list will be based off of the number of correct answers, then time.  
+            So if two scores have the same number of correct answers, then the score with the lowest time will decide which one is a higher score.
+            </summary>
+            <param name="newScore"></param>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.Scores.Save(System.String)">
+            <summary>
+            Saves the High Scores at the location of the filepath.
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.Scores.Load(System.String)">
+            <summary>
+            Loads the High Scores at the location of the filepath.
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.Scores.GetEnumerator">
+            <summary>
+            Enumerator interface of scores from the Top10Scores list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.Scores.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            The matching return type of IEnumerator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:The_Arithmetician.User">
+            <summary>
+            A user that plays an Arithmetician game
+            Contains the Name and Age of the user.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.User.Name">
+            <summary>
+            The name of the user
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.User.Age">
+            <summary>
+            The age of the user
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.EnterUserData">
+            <summary>
+            Interaction logic for wndEnterUserData.xaml
+            </summary>
+            <summary>
+            EnterUserData
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.#ctor">
+            <summary>
+            The Initialization of the EnterInfo Window
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.#ctor(The_Arithmetician.User)">
+            <summary>
+            Constructor for the screen gets the user data passed to it if there already is one.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.ShowErrorMessage(System.Exception)">
+            <summary>
+            Shows an error message of the exception. Used to catch event errors.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.ShowErrorMessage(System.Windows.Controls.TextBox,System.String)">
+            <summary>
+            Shows an Error Message with a specified message and should focus the text box that had undesirable input
+            </summary>
+            <param name="textBox"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the closing event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.OkButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Checks if the user data is valid and creates the user with the information if it is.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.CancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Closes the window when the cancel button is clicked.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.EnterUserData.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.Game">
+            <summary>
+            Interaction logic for wndGame.xaml
+            </summary>
+            <summary>
+            Game
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Game.ArithmeticianGame">
+            <summary>
+            This holds the data and logic for the game.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Game.CurrentUser">
+            <summary>
+            The game user
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Game.GameType">
+            <summary>
+            This is the current game type of the game.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Game.BackgroundMusicSoundPlayer">
+            <summary>
+            This plays the background music of the game.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Game.ShowMainWindow">
+            <summary>
+            To show the main menu or not to show the main menu. That is the question.
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.Game.#ctor">
+            <summary>
+            Initializes the game window
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.Game.#ctor(The_Arithmetician.User,The_Arithmetician.GameType)">
+            <summary>
+            Constructor of the game window initializes it with a user and gametype information.
+            </summary>
+            <param name="user"></param>
+            <param name="gameType"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.ShowErrorMessage(System.Exception)">
+            <summary>
+            Shows an error message of the exception. Used to catch event errors.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.ReturnToMenu_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Returns to the menu when clicked
+            Also, closes the current game by setting it to null
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.FinishGame">
+            <summary>
+            Closes the game window and closes the game
+            Goes to the High scores if the ten questions are completed.
+            Else goes to the main menu.
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.Game.StartGame_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Starts the game
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.GameTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Goes off when the timer ticks
+            Display the time which the game has ran.
+            Ends the game after 60 minutes.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.Submit_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Submits the current answer to the game,
+            Checks if it is right and show if it is
+            Then clears the answer and shows the next
+            If the ten question is answered, then go to the high score screen
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.Answer_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Restrict user input
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.SubmitAnswer">
+            <summary>
+            Submits the Answer to the game
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.Game.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Closes the window and shuts down the music. Then shows the main menu.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.Game.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.MainWindow.User">
+            <summary>
+            This is the user data of the one to play the game.
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.#ctor">
+            <summary>
+            Constructor to build the main window of the main menu
+            </summary>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.#ctor(The_Arithmetician.User)">
+            <summary>
+            Constructor of the main window which get the user passed to it.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.ShowErrorMessage(System.Exception)">
+            <summary>
+            Shows an error message of the exception. Used to catch event errors.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.ShowErrorMessage(System.String)">
+            <summary>
+            Shows an error message with an error message passed to it.
+            </summary>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.PlayGame_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Hides this window and shows the game window.
+            Only opens if there is user data.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.EditPlayerInfo_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Goes to the Edit Player data window when clicked
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.HighScores_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Hides this window and shows the high scores window.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.NewGame(The_Arithmetician.GameType)">
+            <summary>
+            Opens up a new Game window and closes this one.
+            </summary>
+            <param name="gameType"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.AdditionButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes the game type to addition
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.SubtractionButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes the game type to subtraction.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.MultiplicationButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes the game type to Multiplication
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.DivisionButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes the game type to Division.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.CancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Shows the main menu items instead of the game type items whicn clicked on cancel
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.LoadImage(System.String)">
+            <summary>
+            Loads an image resource
+            </summary>
+            <param name="relativeUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:The_Arithmetician.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:The_Arithmetician.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Properties.Resources.Arithmetician">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Properties.Resources.FFT_Piano_Antipyretic">
+            <summary>
+              Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Properties.Resources.FFT_Piano_Fanfare">
+            <summary>
+              Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+            </summary>
+        </member>
+        <member name="P:The_Arithmetician.Properties.Resources.FFT_Piano_Game_Over">
+            <summary>
+              Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+            </summary>
+        </member>
+    </members>
+</doc>

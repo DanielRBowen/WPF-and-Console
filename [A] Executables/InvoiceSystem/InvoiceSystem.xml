@@ -1,0 +1,965 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvoiceSystem</name>
+    </assembly>
+    <members>
+        <member name="T:InvoiceSystem.Classes.Error">
+            <summary>
+            Class for handling errors.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Classes.Error.HandleError(System.String,System.String,System.Exception)">
+            <summary>
+            Handles Error messages
+            All methods should handle exceptions.  
+            </summary>
+            <param name="sClass"></param>
+            <param name="sMethod"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="T:InvoiceSystem.Classes.Database">
+            <summary>
+            Class used to access the database.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Classes.Database.SConnectionString">
+            <summary>
+            Connection string to the database.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Classes.Database.#ctor">
+            <summary>
+            Constructor that sets the connection string to the database
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Classes.Database.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectiongString"></param>
+        </member>
+        <member name="M:InvoiceSystem.Classes.Database.ExecuteSQLStatement(System.String,System.Int32@)">
+            <summary>
+            This method takes an SQL statment that is passed in and executes it.  The resulting values
+            are returned in a DataSet.  The number of rows returned from the query will be put into
+            the reference parameter iRetVal.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <param name="iRetVal">Reference parameter that returns the number of selected rows.</param>
+            <returns>Returns a DataSet that contains the data from the SQL statement.</returns>
+        </member>
+        <member name="M:InvoiceSystem.Classes.Database.ExecuteScalarSQL(System.String)">
+            <summary>
+            This method takes an SQL statment that is passed in and executes it.  The resulting single 
+            value is returned.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <returns>Returns a string from the scalar SQL statement.</returns>
+        </member>
+        <member name="M:InvoiceSystem.Classes.Database.ExecuteNonQuery(System.String)">
+            <summary>
+            This method takes an SQL statment that is a non query and executes it.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <returns>Returns the number of rows affected by the SQL statement.</returns>
+        </member>
+        <member name="T:InvoiceSystem.Models.LineItem">
+            <summary>
+            A model of a line item that taken from the data
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Models.LineItem.InvoiceNumber">
+            <summary>
+            The invoice number of a line item.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Models.LineItem.LineItemNumber">
+            <summary>
+            The line item number of a line item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Models.LineItem.ItemCode">
+            <summary>
+            The item code of a line item.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Models.LineItem.TryDelete">
+            <summary>
+            Bool to try and delete current line item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel">
+            <summary>
+            To bind the current invoices line items and items to a datagrid within a view
+            </summary>
+        </member>
+        <member name="F:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.lineItem">
+            <summary>
+            Data of a line item
+            </summary>
+        </member>
+        <member name="F:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.item">
+            <summary>
+            Data of item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.LineItem">
+            <summary>
+            The Line item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.Item">
+            <summary>
+            The Line item
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.#ctor(InvoiceSystem.Models.LineItem,InvoiceSystem.Item)">
+            <summary>
+            Takes a LineItem and Item and creats a CurrentInvoice viewmodel from them.
+            </summary>
+            <param name="lineItem"></param>
+            <param name="item"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.InvoiceNum">
+            <summary>
+            The invoice number of a line item as a string
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.LineItemNum">
+            <summary>
+            The line item number of an item as a string
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.ItemCode">
+            <summary>
+            The Item code of a line item as a string
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.ItemDesc">
+            <summary>
+            The description of the item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.CurrentInvoiceItemViewModel.Cost">
+            <summary>
+            The cost of the item
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.InvoiceNumberViewModel">
+            <summary>
+            To bind a control with a invoice number
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.InvoiceNumberViewModel.#ctor(System.Nullable{System.Int32})">
+            <summary>
+            The constructor of the invoice Number view model takes the value of the invoice number
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceNumberViewModel.Text">
+            <summary>
+            The text of the viewmodel, binds the the value of the data 
+            to the text of the control it is bound.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceNumberViewModel.Value">
+            <summary>
+            The value of the number
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.InvoiceNumberViewModel.ToString">
+            <summary>
+            The to string method just returns the text
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.ItemsDefinitionViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:InvoiceSystem.ViewModels.ItemsDefinitionViewModel.allItems">
+            <summary>
+            A List of all Items from the database.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.ItemsDefinitionViewModel.AllItems">
+            <summary>
+            A List of all Items from the database.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.ItemsDefinitionViewModel.SelectedItem">
+            <summary>
+            The Item which is selected
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.ItemsDefinitionViewModel.RefreshItems">
+            <summary>
+            Refreshes the list of items
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.ItemsDefinitionViewModel.#ctor">
+            <summary>
+            Constructor that gets all Items from the database.
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.ItemViewModel">
+            <summary>
+            To bind a control with item data
+            </summary>
+        </member>
+        <member name="F:InvoiceSystem.ViewModels.ItemViewModel.item">
+            <summary>
+            Data of item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.ItemViewModel.Item">
+            <summary>
+            get or set the item
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.ItemViewModel.#ctor(InvoiceSystem.Item)">
+            <summary>
+            Create an item view model with the data
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.ItemViewModel.ItemCode">
+            <summary>
+            Item code of the item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.ItemViewModel.ItemDesc">
+            <summary>
+            The description of the item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.ItemViewModel.Cost">
+            <summary>
+            The cost of the item
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.ItemViewModel.ToString">
+            <summary>
+            The string of an ItemViewModel is the ItemDesc
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.LineItemViewModel">
+            <summary>
+            To bind line item data to a view
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.LineItemViewModel.LineItem">
+            <summary>
+            The Line item
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.LineItemViewModel.#ctor(InvoiceSystem.Models.LineItem)">
+            <summary>
+            Constructor takes a line item model to make it into a viewmodel
+            </summary>
+            <param name="lineItem"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.LineItemViewModel.InvoiceNum">
+            <summary>
+            The invoice number of a line item as a string
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.LineItemViewModel.LineItemNum">
+            <summary>
+            The line item number of an item as a string
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.LineItemViewModel.ItemCode">
+            <summary>
+            The Item code of a line item as a string
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.MainViewModel">
+            <summary>
+            MainViewModel for the main window
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.MainViewModel.AllItems">
+            <summary>
+            A List of all Items from the database.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.MainViewModel.SelectedItem">
+            <summary>
+            The Item which is selected
+            </summary>
+        </member>
+        <member name="F:InvoiceSystem.ViewModels.MainViewModel.currentInvoiceItems">
+            <summary>
+            List of line item viewmodel 
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.MainViewModel.CurrentInvoiceItems">
+            <summary>
+            The current items invoice
+            Notifies that the property has changed and updates the view accordingly.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.MainViewModel.CurrentInvoiceViewModel">
+            <summary>
+            To display data such as Total charge in a format for viewing.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.MainViewModel.RefreshInvoice">
+            <summary>
+            Refreshes the Current Invoice View Model
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.MainViewModel.#ctor">
+            <summary>
+            MainViewModel constructor to set things up
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.TotalChargeViewModel">
+            <summary>
+            To bind a control with a total charge data
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.TotalChargeViewModel.#ctor(System.Nullable{System.Decimal})">
+            <summary>
+            The constructor of the total charge view model takes the value of the invoice total charge
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.TotalChargeViewModel.Text">
+            <summary>
+            The text of the viewmodel, binds the the value of the data
+            to the text of the control it is bound.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.TotalChargeViewModel.Value">
+            <summary>
+            The value of the total charge
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.TotalChargeViewModel.ToString">
+            <summary>
+            The to string method just returns the text
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.ViewModel">
+            <summary>
+            The a viewmodel abstract class that is overriden by a viewmodel
+            Is a INotifyPropertyChanged class which will Invoke a PropertyChangeEventArgs 
+            when ever a property is changed the NotifyPropertyChanged method is called and then the viewmodel is updated with the changed property.
+            </summary>
+        </member>
+        <member name="E:InvoiceSystem.ViewModels.ViewModel.PropertyChanged">
+            <summary>
+            The event handler for when the property is changed
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.ViewModel.NotifyPropertyChanged(System.String)">
+            <summary>
+            When ever a property is changed the NotifyPropertyChanged method is called and then the viewmodel is updated with the changed property.
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.InvoiceDateViewModel">
+            <summary>
+            Binds a control with a invoice Date
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.InvoiceDateViewModel.#ctor(System.Nullable{System.DateTime})">
+            <summary>
+            The constructor of the Date view model takes the value of the invoice date
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceDateViewModel.Text">
+            <summary>
+            The text of the viewmodel, binds the the value of the data 
+            to the text of the control it is bound.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceDateViewModel.Value">
+            <summary>
+            The value of the Date
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.InvoiceDateViewModel.ToString">
+            <summary>
+            The to string method just returns the text
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.InvoiceViewModel">
+            <summary>
+            To bind a control with invoice data
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceViewModel.Invoice">
+            <summary>
+            Can get or se the invoice.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.InvoiceViewModel.#ctor(InvoiceSystem.Invoice)">
+            <summary>
+            Creates an Invoice view model with the data
+            </summary>
+            <param name="invoice"></param>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceViewModel.InvoiceNum">
+            <summary>
+            The Invoice Number of a invoice
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceViewModel.InvoiceDate">
+            <summary>
+            The Invoice Date of a invoice
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.InvoiceViewModel.TotalCharge">
+            <summary>
+            The Total Charge of a invoice
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.ViewModels.SearchViewModel">
+            <summary>
+            The Search viewmodel for the search window
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.InvoiceNumbers">
+            <summary>
+            All of the Invoice Numbers populated in the InvoiceNumbersComboBox
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.InvoiceDates">
+            <summary>
+            All of the Invoice Dates populated in the InvoiceDateComboBox
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.TotalCharges">
+            <summary>
+            All of the Total charges populated in the TotalCharges Combobox
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.SelectedInvoiceNumber">
+            <summary>
+            The Selected Invoice Number of the InvoiceNumbersComboBox
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.SelectedInvoiceDate">
+            <summary>
+            The Selected Invoice Date of the InvoiceDatesComboBox
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.SelectedTotalCharge">
+            <summary>
+            The selected Total Charge of the TotalChargeComboBox
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.ViewModels.SearchViewModel.FilteredInvoices">
+            <summary>
+            The filter invoices.
+            Notifies that the property has changed and updates the view accordingly.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.SearchViewModel.ApplyFilters">
+            <summary>
+            Apply filters and changes the datagrid accordingly to its data bindings. 
+            Is called when ever the NotifyPropertyChanged method is called and the constructor is then called again.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.ViewModels.SearchViewModel.#ctor">
+            <summary>
+            The constructor of the Search ViewModel which is the data context of the Search Window
+            Loads the invoices from the database, creates the ViewModel Observable collections from the invoices, then Applies the filters.
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.Windows.SearchWindow">
+            <summary>
+            Interaction logic for SearchWindow.xaml
+            </summary>
+            <summary>
+            SearchWindow
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Windows.SearchWindow.#ctor">
+            <summary>
+            The user also needs to be able to search for invoices, which will be a choice from the menu.
+            On the search screen all invoices should be displayed in a list (like a DataGrid) for the user to select.  
+            The user may limit the invoices displayed by choosing an Invoice Number from a drop down, selecting an invoice date, 
+            or selecting the total charge from a drop down box.  When a limiting item is selected the list should only reflect those invoices that match the criteria.  
+            A clear selection button should reset the form to its initial state. 
+            Once an invoice is selected the user will click a “Select Invoice” button, which will close the search form and open the selected invoice up for viewing on the main screen.  
+            From there the user may choose to Edit or Delete the invoice.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Windows.SearchWindow.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the closing event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.SearchWindow.SelectButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Once an invoice is selected the user will click a “Select Invoice” button, which will close the search form and open the selected invoice up for viewing on the main screen.  
+            From there the user may choose to Edit or Delete the invoice.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.SearchWindow.CancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Cancels the search and closes the window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.SearchWindow.ClearButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A clear selection button should reset the form to its initial state.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.SearchWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.Windows.ItemsDefinitionTableWindow">
+            <summary>
+            Interaction logic for DefinitionTableWindow.xaml
+            </summary>
+            <summary>
+            ItemsDefinitionTableWindow
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Windows.ItemsDefinitionTableWindow.ViewModel">
+            <summary>
+            For Access to the datacontext
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.#ctor">
+            <summary>
+            The last form needed is a form to update the def table which contains all the items for the business.  
+            This form can be accessed through the menu and only when an invoice is not being edited or a new invoice is being entered.  
+            This form will list all the items in a list (like a DataGrid).  
+            The items will consist of a name, cost, and description.  
+            From here the user can add new items, edit existing items, or delete existing items.  
+            If the user tries to delete an item that is on an invoice, don’t allow the user to do so.  
+            Instead warn them with a message that tells the user which invoices that item is used on.  
+            When the user closes the update def table form, make sure to update the drop down box as to reflect any changes made by the user.  
+            Also update the current invoice because its item name might have been updated.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the closing event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.CancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Cancels the definition table window and returns to the main window.
+            
+            When the user closes the update def table form, make sure to update the drop down box as to reflect any changes made by the user.
+            Also update the current invoice because its item name might have been updated.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.SaveBtn_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Saves item to database.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.AddButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Adds an Item to the item definitions
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.DeleteButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Deletes an item
+            
+            If the user tries to delete an item that is on an invoice, don’t allow the user to do so.
+            Instead warn them with a message that tells the user which invoices that item is used on.  
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.ItemDataGrid_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.ItemNameTextBox_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Only allow letters and numbers to be entered.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.ItemCostTextBox_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Only allow numbers to be entered.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.ItemDescriptionTextBox_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Only allow letters, numbers, space, dash, and slash to be entered.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.ItemsDefinitionTableWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.Windows.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.#ctor">
+            <summary>
+            The main form should allow the user to create new invoices, edit existing invoices, or delete existing invoices.  
+            It will also have a menu that will have two functionalities.  
+            The first will allow the user to update a def table that contains the items.
+            The next will be to open a search screen used to search for invoices.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.CreateSaveInvoiceButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            If a new invoice is created the user may enter data pertaining to that invoice.  
+            An auto-generated number from the database will be given to the invoice as the invoice number.  
+            An invoice date will also be assigned by the user.  Next different items will be entered by the user.  
+            The items will be selected from a drop down box and the cost for that item will be put into a read only textbox.  
+            This will be the default cost of an item. Once the item is selected, the user can add the item.  As many items as needed should be able to be added.  
+            All items entered should be displayed for viewing in a list (something like a DataGrid).  Items may be deleted from the list.
+            A running total of the cost should be displayed as items are entered or deleted.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.EditInvoiceButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Once all the items are entered the user can save the invoice.  
+            This will lock the data in the invoice for viewing only.  
+            From here the user may choose to Edit the Invoice or Delete the Invoice.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.DeleteInvoiceButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Once all the items are entered the user can save the invoice.  
+            This will lock the data in the invoice for viewing only.  
+            From here the user may choose to Edit the Invoice or Delete the Invoice.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.SearchWindowButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Opens up a search window
+            Pass any info needed in the search window then closes this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.DefinitionTableWindowButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Opens up a new definition table window
+            Pass any info needed in the Definition table window then closes this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.AddItemButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Adds an Item to the invoice
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.DeleteItemButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Method for when the delete items button is clicked
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:InvoiceSystem.Windows.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.App.InvoiceService">
+            <summary>
+            Contains the logic for the application
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.DataStore">
+            <summary>
+            Contains the SQL statements for managing the invoice data.
+            
+            This part of the assignment is to create a class that contains the main pieces of SQL used throughout the project.  
+            This class will be nothing but methods that contain different statements of SQL.  
+            Make sure to create SQL statements that will help in meeting all requirements that use the database.  
+            So SQL statements needed will be to select different types of data on each window, to update/insert/delete data on each form.  
+            Use Microsoft Access to run the queries ahead of time to make sure the queries give you the expected data and work correctly.  
+            Your SQL statements should be tested and working.  Below is an example of a class/method that should be used as a guide for your code.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.AddItemToInvoice(InvoiceSystem.Invoice,InvoiceSystem.Item)">
+            <summary>
+            Adds an item to invoice.
+            </summary>
+            <param name="invoice"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.DeleteInvoice(InvoiceSystem.Invoice)">
+            <summary>
+            Method to delete the lineitems and invoice from database
+            </summary>
+            <param name="invoice"></param>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.InsertInvoice(InvoiceSystem.Invoice)">
+            <summary>
+            Returns a SQL statement to insert an Invoice into the Invoice Table.
+            </summary>
+            <param name="invoice">invoice object to be inserted</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.LoadAllInvoices">
+            <summary>
+            Loads the invoices from the database and returns the data as a IList of Invoices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.LoadAllItems">
+            <summary>
+            Get all items from database.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.LoadLineItems(InvoiceSystem.Invoice)">
+            <summary>
+            Get the line items for the invoice.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.LoadItem(InvoiceSystem.Models.LineItem)">
+            <summary>
+            Loads the Item from of with the itemcode of the given lineItem
+            </summary>
+            <param name="lineItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.InvoiceExists(System.Int32)">
+            <summary>
+            Returns true if the Invoice exists for the given invoice number
+            </summary>
+            <param name="invoiceNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.UpdateInvoice(InvoiceSystem.Invoice)">
+            <summary>
+            Updates the given invoice.
+            </summary>
+            <param name="invoice"></param>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.ItemExistsOnInvoice(System.String)">
+            <summary>
+            Returns true if the Item exists on an invoice.
+            </summary>
+            <param name="itemCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.ItemExists(System.String)">
+            <summary>
+            Returns true if the Item exists for the given item code.
+            </summary>
+            <param name="itemCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.InsertItem(InvoiceSystem.Item)">
+            <summary>
+            Save item to database.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.UpdateItem(InvoiceSystem.Item)">
+            <summary>
+            Update an item in the database.
+            </summary>
+            <param name="item">item to be updated</param>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.DeleteItem(InvoiceSystem.Item)">
+            <summary>
+            Deletes an item from database.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.LineItemExists(InvoiceSystem.Models.LineItem)">
+            <summary>
+            Method to return if a line item exists
+            </summary>
+            <param name="lineItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoiceSystem.DataStore.DeleteLineItem(InvoiceSystem.Models.LineItem)">
+            <summary>
+            Method to delete the line item that exists
+            </summary>
+            <param name="lineItem"></param>
+        </member>
+        <member name="T:InvoiceSystem.Invoice">
+            <summary>
+            Contains the information for an invoice.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Invoice.InvoiceNum">
+            <summary>
+            A unique ID for an invoice (InvoiceNum from database)
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Invoice.InvoiceDate">
+            <summary>
+            The Date which the invoice was made
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Invoice.TotalCharge">
+            <summary>
+            The total charge that the invoice totaled
+            Should be all the items in the list added up
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Invoice.CalculateTotalCharge(System.Collections.Generic.List{InvoiceSystem.Item})">
+            <summary>
+            Calculates the total charge
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:InvoiceSystem.Invoice.Save(System.Collections.Generic.List{InvoiceSystem.Item})">
+            <summary>
+            Saves the invoice. Updates the data if it exists or inserts the data if it doesn't
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Invoice.TryDelete">
+            <summary>
+            Bool to try and delete invoice and line items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.InvoiceService">
+            <summary>
+            A class which contains the main logic for the Invoice System
+            Don’t forget to abstract your business logic into classes and keep you UI code clean.  
+            </summary>
+        </member>
+        <member name="E:InvoiceSystem.InvoiceService.PropertyChanged">
+            <summary>
+            Handler to notify the view that the property has changed.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.InvoiceService.NotifyPropertyChanged(System.String)">
+            <summary>
+            Will Notify the view that the property has changed
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="F:InvoiceSystem.InvoiceService.currentInvoice">
+            <summary>
+            The current invoice
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.InvoiceService.CurrentInvoice">
+            <summary>
+            This is the current invoice that the user has either selected from the search window, created, or is editing.
+            </summary>
+        </member>
+        <member name="T:InvoiceSystem.Item">
+            <summary>
+            An item that can be on an invoice. (ItemDesc)
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Item.ItemCode">
+            <summary>
+            The name of the item.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Item.ItemDesc">
+            <summary>
+            The description of an item
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Item.Cost">
+            <summary>
+            The cost of an item
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Item.Save">
+            <summary>
+            Saves an item or updates it if it already exists.
+            </summary>
+        </member>
+        <member name="M:InvoiceSystem.Item.TryDelete">
+            <summary>
+            Tries to delete an item if it does not exist on an invoice.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvoiceSystem.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:InvoiceSystem.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

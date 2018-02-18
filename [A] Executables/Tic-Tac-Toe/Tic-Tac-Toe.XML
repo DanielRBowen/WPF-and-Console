@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tic-Tac-Toe</name>
+    </assembly>
+    <members>
+        <member name="P:Tic_Tac_Toe.ComputerPlayer.ComputerTicTacToeGame">
+            <summary>
+            The Tic-Tac-Toe game which the computer plays on.
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.ComputerPlayer.ComputerToken">
+            <summary>
+            The TicTacToeToken which the computer plays
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.#ctor(Tic_Tac_Toe.TicTacToeGame,Tic_Tac_Toe.TicTacToeGame.TicTacToeToken,Tic_Tac_Toe.MainWindow)">
+            <summary>
+            The default constructer needs the game that the computer plays on and the token that it plays
+            </summary>
+            <param name="ticTacToeGame"></param>
+            <param name="ticTacToeToken"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.MakeMove">
+            <summary>
+            Makes a move for the current player
+            Should be called after the last player has made a move when the computer exists
+            Also is called when the AI is created.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.TryMakeWinningMove">
+            <summary>
+            The computer will look for winning moves and make it if there is one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.TryBlockWinningMove">
+            <summary>
+            The computer will look for winning moves and block it if there is one.
+            Can only block one winning move seen. If there are two then the player can win.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.TryWinningMove(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            The computer will either make a winning move or block on depending on the token passed
+            Can only block one winning move seen. If there are two then the player can win.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.TryMiddleSpot">
+            <summary>
+            Computer tries the Middle spot of the tic-tac-toe board
+            </summary>
+            <returns>True if successful</returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.TrySpotAdjacentToOpponent">
+            <summary>
+            Computer tries the spot which is adjacent to the player
+            </summary>
+            <returns>True if successful</returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.FindOpponentToken">
+            <summary>
+            Find what the opponents token is
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.ComputerPlayer.TryFirstEmptySpot">
+            <summary>
+            Computer tries a random empty spot
+            </summary>
+            <returns>True if successful</returns>
+        </member>
+        <member name="T:Tic_Tac_Toe.TicTacToeGame.TicTacToeToken">
+            <summary>
+            The type of token that a player uses
+            </summary>
+        </member>
+        <member name="T:Tic_Tac_Toe.TicTacToeGame.TicTacToeWin">
+            <summary>
+            Indicates who won
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.CurrentTicTacToePlayer">
+            <summary>
+            The current tic tac toe player
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.TicTacToeBoard">
+            <summary>
+            The tic tac toe board that the game is played on.
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.Player1Wins">
+            <summary>
+            The number of times that player 1 has won
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.Player2Wins">
+            <summary>
+            The number of times that player 2 has won
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.Ties">
+            <summary>
+            The number of times that the game was a tie
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.Paused">
+            <summary>
+            Sets the game to be paused if true.
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.TicTacToeGame.TicTacToeWinPositions">
+            <summary>
+            The positions on the board from a winning stratagy
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.#ctor">
+            <summary>
+            The default tic tac toe game constructor
+            The first turn is for the X token.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.ResetBoard">
+            <summary>
+            Fills the board with empty tokens.
+            Should be called on initialization or win the game results are finalized.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.HorizontalWin(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            Return true if there is a horizontal win for the corresponding token
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.VerticalWin(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            Return true if there is a vertical win for the corresponding token
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.LeftDiagonalWin(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            Return true if there is a left diagonal win for the corresponding token
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.RightDiagonalWin(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            Return true if there is a right diagonal win for the corresponding token
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.CheckForTie">
+            <summary>
+            Check if the game is a tie when the players have peen checked and the board is filled up
+            Ties should be checked for last after checking if the players have won
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.TryFinalizePlayer(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            Checks if there is a win for the player with the corresponding token.
+            If there is a win it passes the token back,
+            passes a empty token if there isn't a win.
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tic_Tac_Toe.TicTacToeGame.TryFinalize(Tic_Tac_Toe.TicTacToeGame.TicTacToeWin@)">
+            <summary>
+            Tries to finalize the game.
+            Should be called when ever a player makes a move.
+            Will update the Wins or tie if any of the conditions meet.
+            The winning stratagy positions will be stored.
+            </summary>
+            <returns>true if the game has been finalized.</returns>
+        </member>
+        <member name="T:Tic_Tac_Toe.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Tic_Tac_Toe.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.#ctor">
+            <summary>
+            The Default Constructor of the Main Window of the Application
+            Sets the game up,
+            and loads the images that are used in the game.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnStartGame_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Starts a new game or resets the game board when the Start Game button is clicked.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.ResetGame">
+            <summary>
+            Resets the Tic-Tac-Toe game.
+            Clears the board of images.
+            Resets the labels and turn of the player.
+            Sets the computerPlayers to null.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.ResetBoardContent">
+            <summary>
+            Resets the Tic tac toe board view contents.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx0y0_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx1y0_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx2y0_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx0y1_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx1y1_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx2y1_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx0y2_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx1y2_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnx2y2_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The click on this button will place a X or O image in the box
+            which the button resides.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.PlaceTicTacToeToken(System.Int32)">
+            <summary>
+            Places the tic tac toe token on the place specified.
+            The position has to be 0 through 8 inclusive.
+            Then Updates the UI based on the results of that placement.
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.UpdateUI">
+            <summary>
+            Updates the UI with the data in the model.
+            And starts the turn for the computer if ther is one.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.DisplayWinningMove(Tic_Tac_Toe.TicTacToeGame.TicTacToeToken)">
+            <summary>
+            Highlights the winning move in yellow.
+            </summary>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.btnToggleAIforCurrentPlayer_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Toggles the AI for the current player
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tic_Tac_Toe.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tic_Tac_Toe.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Tic_Tac_Toe.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

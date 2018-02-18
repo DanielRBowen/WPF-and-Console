@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Flight Reservation System</name>
+    </assembly>
+    <members>
+        <member name="T:Flight_Reservation_System.AddPassengerWindow">
+            <summary>
+            Interaction logic for AddPassengerWindow.xaml
+            </summary>
+            <summary>
+            AddPassengerWindow
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.AddPassengerWindow.#ctor">
+            <summary>
+            A Passenger Window
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.AddPassengerWindow.ShowErrorMessage(System.Exception)">
+            <summary>
+            Shows an error message of the exception. Used to catch event errors.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.AddPassengerWindow.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the closing event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.AddPassengerWindow.Save_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the click on the cancel button
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.AddPassengerWindow.Cancel_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the click on the cancel button
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.AddPassengerWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Flight_Reservation_System.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.App.SelectedFlight">
+            <summary>
+            The Selected Flight from the main window saved to keep data among windows.
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.App.SelectedPassenger">
+            <summary>
+            The Selected Passenger from the main window saved to keep data among windows.
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.App.PreviousSelectedButton">
+            <summary>
+            The Previous selected button from the main window saved to keep data among windows.
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Flight_Reservation_System.Flight">
+            <summary>
+            A flight 
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Flight.FlightID">
+            <summary>
+            The unique ID of the flight
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Flight.FlightNumber">
+            <summary>
+            The number of the flight
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Flight.AircraftType">
+            <summary>
+            The Aircraft Type which the flight will use
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Flight.FlightModel">
+            <summary>
+            The flight model is the second part of the AircraftType
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.Flight.ToString">
+            <summary>
+            Returns the flight number and aircraft type in a string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Flight_Reservation_System.FlightPassengerLink">
+            <summary>
+            Links a passenger with a flight when they are added
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.FlightPassengerLink.FlightID">
+            <summary>
+            The ID of the flight
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.FlightPassengerLink.PassengerID">
+            <summary>
+            The ID of the passenger.
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.FlightPassengerLink.SeatNumber">
+            <summary>
+            The seat number where the passenger sits on the flight.
+            </summary>
+        </member>
+        <member name="T:Flight_Reservation_System.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:Flight_Reservation_System.MainWindow.database">
+            <summary>
+            Create an object of type clsDataAccess to access the database
+            </summary>
+        </member>
+        <member name="F:Flight_Reservation_System.MainWindow.flightList">
+            <summary>
+            A list of all the Flight in the database
+            </summary>
+        </member>
+        <member name="F:Flight_Reservation_System.MainWindow.passengerList">
+            <summary>
+            A list of all the Passenger in the database
+            </summary>
+        </member>
+        <member name="F:Flight_Reservation_System.MainWindow.flightPassengerLinkList">
+            <summary>
+            A list of all the FlightPassengerLinks in the database
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.#ctor">
+            <summary>
+            Initialize the MainWindow
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.FillChooseFlightComboBox">
+            <summary>
+            Fills in the flight combo box
+            The “Choose Flight” combo box should be filled up with the two different flights that are extracted from the database Flight table.  
+            When the form first loads, the flights should be extracted from the database and inserted into the combo box.  
+            All other controls on the form should be disabled at this point.
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.ShowErrorMessage(System.Exception)">
+            <summary>
+            Shows an error message of the exception. Used to catch event errors.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.AddPassenger_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Adds a Passenger to the data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.ChangeSeat_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes a current passengers seat in the data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.DeletePassenger_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Deletes a current passengers seat in the data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.ChooseFlightComboBox_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            When the user selects a flight from the “Choose Flight” combo box two things should happen.  
+            The first is that the appropriate flight should be displayed on the left of the program, and the second is that the “Choose Passenger” combo box 
+            should be enabled and loaded with the passengers on the selected flight from the database.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.FillChoosePassengerComboBox">
+            <summary>
+            Fills the choose passenger combo box
+            Once the combobox is filled the passengers seats should be shown as taken on the UI
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.DisplayTakenSeats">
+            <summary>
+            Displays the Taken Seats
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.ChoosePassengerComboBox_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            The chosen passenger should show the seat number in the PassengerSeatTextBlock and display the selected passenger seat in green on the now disabled button in the UI
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.AirbusA380Grid_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles a click for any of the Buttons in the Airbus A380 Grid
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.Boeing767Grid_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles a click for any of the Buttons in the Boeing 767 Grid
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.GridButtonBase_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the event of a button click
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flight_Reservation_System.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Flight_Reservation_System.Passenger">
+            <summary>
+            Contains data for a passenger.
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Passenger.PassengerID">
+            <summary>
+            The unique ID for a passenger
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Passenger.FirstName">
+            <summary>
+            The first name of the passenger
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Passenger.LastName">
+            <summary>
+            The second name of the passenger.
+            </summary>
+        </member>
+        <member name="M:Flight_Reservation_System.Passenger.ToString">
+            <summary>
+            Overrides the ToString method to return the full name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Flight_Reservation_System.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flight_Reservation_System.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:DataAccess">
+            <summary>
+            Class used to access the database.
+            </summary>
+        </member>
+        <member name="F:DataAccess.sConnectionString">
+            <summary>
+            Connection string to the database.
+            </summary>
+        </member>
+        <member name="M:DataAccess.#ctor">
+            <summary>
+            Constructor that sets the connection string to the database
+            </summary>
+        </member>
+        <member name="M:DataAccess.ExecuteSQLStatement(System.String,System.Int32@)">
+            <summary>
+            This method takes an SQL statment that is passed in and executes it.  The resulting values
+            are returned in a DataSet.  The number of rows returned from the query will be put into
+            the reference parameter iRetVal.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <param name="iRetVal">Reference parameter that returns the number of selected rows.</param>
+            <returns>Returns a DataSet that contains the data from the SQL statement.</returns>
+        </member>
+        <member name="M:DataAccess.ExecuteScalarSQL(System.String)">
+            <summary>
+            This method takes an SQL statment that is passed in and executes it.  The resulting single 
+            value is returned.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <returns>Returns a string from the scalar SQL statement.</returns>
+        </member>
+        <member name="M:DataAccess.ExecuteNonQuery(System.String)">
+            <summary>
+            This method takes an SQL statment that is a non query and executes it.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <returns>Returns the number of rows affected by the SQL statement.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3 @@
+﻿Have dot.core installed--download dot.net core at http://dot.net
+On a Windows OS hit the File button in the Explore when in the folder with the project. Hit the File -> Open Windows Powershell. Type: dotnet run
+Or you can modifiy the project as in the documentation for a standalone application: https://docs.microsoft.com/en-us/dotnet/core/deploying/

@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Die Guess Game</name>
+    </assembly>
+    <members>
+        <member name="T:Die_Guess_Game.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Die_Guess_Game.DieGuessGame">
+            <summary>
+            A DieGuessGame hold all the data for a game in which
+            the player guesses what the die will be when it is rolled
+            a couple of times
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.DieGuessGame.Face1History">
+            <summary>
+            These are the GameHistoryItems which attributes will be binded to the data grid.
+            The class uses the INotifyPropertyChanged interface so that xaml elements can be updated when bound to 
+            the class when ever the property is changed
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.DieGuessGame.GameHistoryItems">
+            <summary>
+            This ObservableCollection holds all the items that can be displayed a data grid
+            It holds the game history.
+            </summary>
+        </member>
+        <member name="E:Die_Guess_Game.DieGuessGame.PropertyChanged">
+            <summary>
+            Handles the PropertyChanged event on the class.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.DieGuessGame.GameRandom">
+            <summary>
+            The Random Number Generator of the Die Guess Game
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.DieGuessGame.CurrentGuessNumber">
+            <summary>
+            This is so I can convert the Current Guess that the user chooses to an integer
+            </summary>
+        </member>
+        <member name="F:Die_Guess_Game.DieGuessGame.currentGuess">
+            <summary>
+            This is the Current Guess Number that the user chooses
+            </summary>
+        </member>
+        <member name="F:Die_Guess_Game.DieGuessGame.timesPlayed">
+            <summary>
+            This is how many times the die has been rolled
+            </summary>
+        </member>
+        <member name="F:Die_Guess_Game.DieGuessGame.timesWon">
+            <summary>
+            This is how many times the game has been won
+            </summary>
+        </member>
+        <member name="F:Die_Guess_Game.DieGuessGame.timesLost">
+            <summary>
+            This is how many times the game has been lost.
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.DieGuessGame.#ctor">
+            <summary>
+            Default Constructor for a die guess game.
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.DieGuessGame.NotifyPropertyChanged(System.String)">
+            <summary>
+            The PropertyChanged handler is invoked
+            when the CurrentGuess, TimesPlayed, TimesWon, and TimesLost are set
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Die_Guess_Game.DieGuessGame.RefreshGameHistoryItems">
+            <summary>
+            To change the GameHistory Data grid, the items has to be refreshed:
+            Cleared and add the items again because it is an Observable Collection
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.DieGuessGame.UseGameHistoryItem(System.Int32)">
+            <summary>
+            This method was created so it would be easier to get a game history
+            item property to modify.
+            </summary>
+            <param name="face"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Die_Guess_Game.DieGuessGame.UpdatePercent">
+            <summary>
+            Updates the percent of each game history item
+            Make sure you update the frequency first.
+            </summary>
+        </member>
+        <member name="T:Die_Guess_Game.GameHistoryItem">
+            <summary>
+            A game history item holds the history the game
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.GameHistoryItem.Face">
+            <summary>
+            The face that was rolled in the game
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.GameHistoryItem.Frequency">
+            <summary>
+            The frequency that the face was rolled throughout the game
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.GameHistoryItem.Percent">
+            <summary>
+            The percent that the face was rolled throughout the game
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.GameHistoryItem.NumberTimesGuessed">
+            <summary>
+            The number of times the user has guessed that roll.
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.GameHistoryItem.SetAllHistoryItems(System.Int32,System.Int32,System.Single,System.Int32)">
+            <summary>
+            A method that I used when I found out that I was doing the game history wrong
+            and made this funky implementation.
+            </summary>
+            <param name="face"></param>
+            <param name="frequency"></param>
+            <param name="percent"></param>
+            <param name="timesGuessed"></param>
+        </member>
+        <member name="M:Die_Guess_Game.GameHistoryItem.#ctor(System.Int32,System.Int32,System.Single,System.Int32)">
+            <summary>
+            The default constructor for a game history item.
+            </summary>
+            <param name="face"></param>
+            <param name="frequency"></param>
+            <param name="percent"></param>
+            <param name="timesGuessed"></param>
+        </member>
+        <member name="T:Die_Guess_Game.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.#ctor">
+            <summary>
+            The Default Constructor of the Main Window of the Application
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.ResetGame">
+            <summary>
+            Clears the game and resets the elements in the window
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.rollBtn_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Will roll the dice and record the results when the roll button is clicked
+            Method has the async keyword that labels it as asynchoronous
+            Doesn't waist cpu cycles
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.resetBtn_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Resets the game, clears the CurrentGuess textbox and focuses it,
+            when the reset button is clicked.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.LoadImages">
+            <summary>
+            Loads all the Images used in the Main window.
+            </summary>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.LoadImage(System.String)">
+            <summary>
+            Loads an image resource
+            Graphics are tedious
+            The dies bulid action in Properties have to be a Resource
+            </summary>
+            <param name="relativeUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Die_Guess_Game.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Die_Guess_Game.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.die1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.die2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.die3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.die4">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.die5">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Die_Guess_Game.Properties.Resources.die6">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>

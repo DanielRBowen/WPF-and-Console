@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Assignment6AirlineReservation</name>
+    </assembly>
+    <members>
+        <member name="T:Assignment6AirlineReservation.AirlineRepository">
+            <summary>
+            Allows access to get, update, and delete data from the Airline Database
+            </summary>
+        </member>
+        <member name="F:Assignment6AirlineReservation.AirlineRepository.clsData">
+            <summary>
+            Access to the database
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.AirlineRepository.FlightList">
+            <summary>
+            A list of all the Flight in the database
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.AirlineRepository.PassengerList">
+            <summary>
+            A list of all the Passenger in the database
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.AirlineRepository.FlightPassengerLinkList">
+            <summary>
+            A list of all the FlightPassengerLinks in the database
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.UpdatePassenger(Assignment6AirlineReservation.Passenger)">
+            <summary>
+            Updates the passengers first name and last name.
+            </summary>
+            <param name="passenger"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.InsertPassenger(Assignment6AirlineReservation.Passenger)">
+            <summary>
+            Insert a passenger into the database
+            </summary>
+            <param name="passenger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.#ctor">
+            <summary>
+            Initializes all the flights
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.FillFlights">
+            <summary>
+            Fills the flights
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.LoadPassengers">
+            <summary>
+            Loads the passengers from the database into a IList of Passengers
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.LoadFlightPassengerLinks(Assignment6AirlineReservation.Flight)">
+            <summary>
+            Loads the flight passenger links and returns it as a list
+            </summary>
+            <param name="flight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.AddPassenger(System.String,System.String)">
+            <summary>
+            Add a passenger with the desired first name and last name into the database
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.SeatExists(System.Int32,System.Int32)">
+            <summary>
+            Returns true if the seat exists
+            </summary>
+            <param name="flightId"></param>
+            <param name="passengerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.UpdateSeat(System.Int32,System.Int32,System.String)">
+            <summary>
+            Updates a seat assoiciated with the flightId, passengerId, and seatNumber
+            </summary>
+            <param name="flightId"></param>
+            <param name="passengerId"></param>
+            <param name="seatNumber"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.AddSeat(System.Int32,System.Int32,System.String)">
+            <summary>
+            Adds a seat for the passenger into the database
+            </summary>
+            <param name="flightId"></param>
+            <param name="passengerId"></param>
+            <param name="seatNumber"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.AddOrUpdateSeat(Assignment6AirlineReservation.Flight,Assignment6AirlineReservation.Passenger,System.String)">
+            <summary>
+            Adds or updates a seat if it exists
+            </summary>
+            <param name="flight"></param>
+            <param name="passenger"></param>
+            <param name="seatNumber"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.ChangeSeat(Assignment6AirlineReservation.Flight,Assignment6AirlineReservation.Passenger,System.String)">
+            <summary>
+            Changes the seat in the data with the parameters
+            </summary>
+            <param name="flight"></param>
+            <param name="passenger"></param>
+            <param name="seatNumber"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.DeletePassenger(Assignment6AirlineReservation.Passenger)">
+            <summary>
+            Deletes the passenger in the data
+            </summary>
+            <param name="passenger"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.PassengerExists(System.Int32)">
+            <summary>
+            Returns true if the passenger for the passengerId exists
+            </summary>
+            <param name="passengerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.AirlineRepository.DeletePassenger(System.Int32)">
+            <summary>
+            Deletes a passenger in the database associated with the corresponding Id
+            </summary>
+            <param name="passengerId"></param>
+        </member>
+        <member name="T:Assignment6AirlineReservation.Flight">
+            <summary>
+            A flight 
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Flight.FlightID">
+            <summary>
+            The unique ID of the flight
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Flight.FlightNumber">
+            <summary>
+            The number of the flight
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Flight.AircraftType">
+            <summary>
+            The Aircraft Type which the flight will use
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.Flight.ToString">
+            <summary>
+            Returns the flight number and aircraft type in a string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Assignment6AirlineReservation.FlightPassengerLink">
+            <summary>
+            Links a passenger with a flight when they are added
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.FlightPassengerLink.FlightID">
+            <summary>
+            The ID of the flight
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.FlightPassengerLink.PassengerID">
+            <summary>
+            The ID of the passenger.
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.FlightPassengerLink.SeatNumber">
+            <summary>
+            The seat number where the passenger sits on the flight.
+            </summary>
+        </member>
+        <member name="T:Assignment6AirlineReservation.Passenger">
+            <summary>
+            Contains data for a passenger.
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Passenger.PassengerID">
+            <summary>
+            The unique ID for a passenger
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Passenger.FirstName">
+            <summary>
+            The first name of the passenger
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Passenger.LastName">
+            <summary>
+            The second name of the passenger.
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.Passenger.ToString">
+            <summary>
+            Overrides the ToString method to return the full name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.Passenger.Save">
+            <summary>
+            Save the passenger in the repository
+            </summary>
+        </member>
+        <member name="T:Assignment6AirlineReservation.wndAddPassenger">
+            <summary>
+            Interaction logic for wndAddPassenger.xaml
+            </summary>
+            <summary>
+            wndAddPassenger
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.#ctor">
+            <summary>
+            constructor for the add passenger window
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.txtLetterInput_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            only allows letters to be input
+            </summary>
+            <param name="sender">sent object</param>
+            <param name="e">key argument</param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the closing event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.HandleError(System.String,System.String,System.String)">
+            <summary>
+            exception handler that shows the error
+            </summary>
+            <param name="sClass">the class</param>
+            <param name="sMethod">the method</param>
+            <param name="sMessage">the error message</param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.CancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the cancel button click.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.SaveButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the save button click.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.ShowErrorMessage(System.Windows.Controls.TextBox,System.String)">
+            <summary>
+            Shows an Error Message with a specified message and should focus the text box that had undesirable input
+            </summary>
+            <param name="textBox"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.wndAddPassenger.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Assignment6AirlineReservation.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.App.SelectedFlight">
+            <summary>
+            The Selected Flight from the main window saved to keep data among windows.
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.App.SelectedPassenger">
+            <summary>
+            The Selected Passenger from the main window saved to keep data among windows.
+            </summary>
+        </member>
+        <member name="F:Assignment6AirlineReservation.App.AirlineRepository">
+            <summary>
+            Allows access to get and update data from the Airline Database
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="F:Assignment6AirlineReservation.clsDataAccess.sConnectionString">
+            <summary>
+            Connection string to the database.
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.clsDataAccess.#ctor">
+            <summary>
+            Constructor that sets the connection string to the database
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.clsDataAccess.ExecuteSQLStatement(System.String,System.Int32@)">
+            <summary>
+            This method takes an SQL statement that is passed in and executes it.  The resulting values
+            are returned in a DataSet.  The number of rows returned from the query will be put into
+            the reference parameter iRetVal.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <param name="iRetVal">Reference parameter that returns the number of selected rows.</param>
+            <returns>Returns a DataSet that contains the data from the SQL statement.</returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.clsDataAccess.ExecuteScalarSQL(System.String)">
+            <summary>
+            This method takes an SQL statement that is passed in and executes it.  The resulting single 
+            value is returned.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <returns>Returns a string from the scalar SQL statement.</returns>
+        </member>
+        <member name="M:Assignment6AirlineReservation.clsDataAccess.ExecuteNonQuery(System.String)">
+            <summary>
+            This method takes an SQL statement that is a non query and executes it.
+            </summary>
+            <param name="sSQL">The SQL statement to be executed.</param>
+            <returns>Returns the number of rows affected by the SQL statement.</returns>
+        </member>
+        <member name="T:Assignment6AirlineReservation.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:Assignment6AirlineReservation.MainWindow.choosingPassenger">
+            <summary>
+            So the app can change functionality to choose a passenger
+            </summary>
+        </member>
+        <member name="F:Assignment6AirlineReservation.MainWindow.refreshingControls">
+            <summary>
+            So that other functionality doesn't interfere while refreshing.
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.MainWindow.SeatButtons">
+            <summary>
+            A list of all the seat buttons
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.#ctor">
+            <summary>
+            The Main window of the application.
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.#ctor(System.Boolean)">
+            <summary>
+            This constructor is called when the user wants to select a seat.
+            </summary>
+            <param name="selectSeat"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.SelectSeat">
+            <summary>
+            Allows the user to select a seat.
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.cbChooseFlight_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            When the user selects a flight from the “Choose Flight” combo box two things should happen.  
+            The first is that the appropriate flight should be displayed on the left of the program, and the second is that the “Choose Passenger” combo box 
+            should be enabled and loaded with the passengers on the selected flight from the database.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.RefreshControls">
+            <summary>
+            Refresh the controls of the main window
+            </summary>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.cmdAddPassenger_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Opens up a new window which allows the user to enter a first name and last name that will be added to the database. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.HandleError(System.String,System.String,System.Exception)">
+            <summary>
+            Handles Error messages
+            </summary>
+            <param name="sClass"></param>
+            <param name="sMethod"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.cbChoosePassenger_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            The chosen passenger should show the seat number in the PassengerSeatTextBlock and display the selected passenger seat in green on the now disabled button in the UI
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.cmdDeletePassenger_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Deletes a current passengers seat in the data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.cmdChangeSeat_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes a current passengers seat in the data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.gbSeat767_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles a click for any of the Buttons in the Boeing 767 Grid
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.gbSeatA380_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles a click for any of the Buttons in the Airbus A380 Grid
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.GridButtonBase_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the event of a button click. Either choose a passenger or not.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.NotChoosingPassenger(System.Windows.FrameworkElement,System.Windows.Controls.Control)">
+            <summary>
+            Is called when a seat button is clicked and the user is not choosing a passenger.
+            </summary>
+            <param name="source"></param>
+            <param name="sourceControl"></param>
+        </member>
+        <member name="M:Assignment6AirlineReservation.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Assignment6AirlineReservation.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Assignment6AirlineReservation.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
