@@ -1,0 +1,25 @@
+﻿<Window x:Class="TagFolderNameToAlbum.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TagFolderNameToAlbum"
+        mc:Ignorable="d"
+        Title="Tag Folder Name To Album" Height="150" Width="Auto" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Content="Folder Location:" FontSize="14"/>
+        <TextBox Name="FolderPathTextBox" Text="C:\Users\Public" Grid.Column="2" FontSize="14"/>
+        <Button Name="ChangeAlbumTagsButton" Content="Change all Album tags to this folder" FontSize="32" Grid.Row="2" Grid.ColumnSpan="3" Click="ChangeAlbumTagsButton_Click"/>
+    </Grid>
+</Window>
