@@ -6,9 +6,7 @@ namespace TagFolderNameToAlbum
     {
         public static void ChangeAlbumTagsOfFolder(string folderPath)
         {
-            var lastBackslashIndex = folderPath.LastIndexOf(@"\") + 1;
-            var folderName = folderPath.Substring(lastBackslashIndex, folderPath.Length - lastBackslashIndex);
-            folderName = Path.GetFileName(folderPath);
+            var folderName = Path.GetFileName(folderPath);
             var mp3FilePaths = Directory.EnumerateFiles(folderPath, "*.mp3", SearchOption.TopDirectoryOnly);
 
             foreach (var mp3FilePath in mp3FilePaths)
