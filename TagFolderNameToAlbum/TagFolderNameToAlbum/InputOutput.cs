@@ -26,6 +26,12 @@ namespace TagFolderNameToAlbum
             mp3Files.ForEach(ChangeAlbumOfFile);
         }
 
+        /// <summary>
+        /// Changes the Album of the file for the given file path
+        /// 
+        /// Tag lib library is here: https://github.com/mono/taglib-sharp/
+        /// </summary>
+        /// <param name="filePath"></param>
         private static void ChangeAlbumOfFile(string filePath)
         {
             TagLib.File tagFile = TagLib.File.Create(filePath);
