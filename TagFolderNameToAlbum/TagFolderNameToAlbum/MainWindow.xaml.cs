@@ -15,7 +15,7 @@ namespace TagFolderNameToAlbum
         private void ChangeAlbumTagsButton_Click(object sender, RoutedEventArgs e)
         {
             var folderPath = FolderPathTextBox.Text;
-            InputOutput.ChangeAlbumTagsOfFolderAsync(folderPath);
+            ChangeAlbumTags.ChangeAlbumTagsOfFolder(folderPath);
         }
     }
 }
