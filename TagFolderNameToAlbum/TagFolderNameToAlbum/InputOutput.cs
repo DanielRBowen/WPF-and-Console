@@ -28,7 +28,6 @@ namespace TagFolderNameToAlbum
 
         private static void ChangeAlbumOfFile(string filePath)
         {
-            
             TagLib.File tagFile = TagLib.File.Create(filePath);
             tagFile.Tag.Album = FolderName;
             tagFile.Save();
