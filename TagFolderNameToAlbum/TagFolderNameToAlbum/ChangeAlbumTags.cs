@@ -4,10 +4,15 @@ namespace TagFolderNameToAlbum
 {
     internal static class ChangeAlbumTags
     {
-        public static void ChangeAlbumTagsOfFolder(string folderPath)
+        public static void ChangeAlbumTagsOfFolder(string folderPath, bool includeSubdirectories = false)
         {
             var folderName = Path.GetFileName(folderPath);
             var mp3FilePaths = Directory.EnumerateFiles(folderPath, "*.mp3", SearchOption.TopDirectoryOnly);
+
+            if (includeSubdirectories)
+            {
+                mp3FilePaths = Directory.EnumerateFiles(folderPath, "*.mp3", SearchOption.AllDirectories);
+            }
 
             foreach (var mp3FilePath in mp3FilePaths)
             {

@@ -16,10 +16,14 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="140"/>
         </Grid.ColumnDefinitions>
         
-        <Label Content="Folder Location:" FontSize="14"/>
-        <TextBox Name="FolderPathTextBox" Text="C:\Users\Public" Grid.Column="2" FontSize="14"/>
-        <Button Name="ChangeAlbumTagsButton" Content="Change all Album tags to this folder" FontSize="32" Grid.Row="2" Grid.ColumnSpan="3" Click="ChangeAlbumTagsButton_Click"/>
+        <Label Content="Folder Location:" FontSize="18"/>
+        <TextBox Name="FolderPathTextBox" Text="C:\Users\Public" Grid.Column="2" FontSize="16"/>
+        <Button Name="FolderBrowserButton" Content="Select Folder" IsEnabled="False" Grid.Column="4" FontSize="16"/>
+        <Button Name="SubdirectoriesButton" Content="Subdirectories?" Background="Red" Grid.Row="2" FontSize="16" Click="SubdirectoriesButton_Click"/>
+        <Button Name="ChangeAlbumTagsButton" Content="Change all Album tags to this folder" FontSize="28" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Click="ChangeAlbumTagsButton_Click"/>
     </Grid>
 </Window>
