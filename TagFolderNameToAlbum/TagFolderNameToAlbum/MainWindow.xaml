@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TagFolderNameToAlbum"
         mc:Ignorable="d"
-        Title="Tag Folder Name To Album" Height="150" Width="Auto" WindowStartupLocation="CenterScreen">
+        Title="Tag Folder Name To Album" Height="230" Width="Auto" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -19,11 +21,31 @@
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="140"/>
         </Grid.ColumnDefinitions>
-        
+
         <Label Content="Folder Location:" FontSize="18"/>
-        <TextBox Name="FolderPathTextBox" Text="C:\Users\Public" Grid.Column="2" FontSize="16"/>
-        <Button Name="FolderBrowserButton" Content="Select Folder" IsEnabled="False" Grid.Column="4" FontSize="16"/>
-        <Button Name="SubdirectoriesButton" Content="Subdirectories?" Background="Red" Grid.Row="2" FontSize="16" Click="SubdirectoriesButton_Click"/>
-        <Button Name="ChangeAlbumTagsButton" Content="Change all Album tags to this folder" FontSize="28" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Click="ChangeAlbumTagsButton_Click"/>
+        <TextBox Name="FolderPathTextBox" Text="C:\Users\Public" Grid.Column="2" Grid.ColumnSpan="3" FontSize="16"/>
+
+        <GroupBox Grid.Row="2" Grid.ColumnSpan="5">
+            <GroupBox.Header>
+                <Label Content="Options"/>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Include Subdirectories?"/>
+                <CheckBox Name="SubdirectoriesCheckBox" Grid.Column="2" Checked="SubdirectoriesCheckBox_Checked" Unchecked="SubdirectoriesCheckBox_Unchecked"/>
+            </Grid>
+
+        </GroupBox>
+
+        <Button Name="ChangeAlbumTagsButton" Content="Change all Album tags to this folder" Background="White" FontSize="28" Grid.Row="4" Grid.ColumnSpan="5" Click="ChangeAlbumTagsButton_Click"/>
     </Grid>
 </Window>

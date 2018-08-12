@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using System.Windows.Media;
+﻿using System;
+using System.Windows;
 
 namespace TagFolderNameToAlbum
 {
@@ -15,24 +15,35 @@ namespace TagFolderNameToAlbum
             InitializeComponent();
         }
 
-        private void ChangeAlbumTagsButton_Click(object sender, RoutedEventArgs e)
+        private async void ChangeAlbumTagsButton_Click(object sender, RoutedEventArgs e)
         {
-            ChangeAlbumTagsButton.Background = Brushes.Red;
-            var folderPath = FolderPathTextBox.Text;
-            ChangeAlbumTags.ChangeAlbumTagsOfFolder(folderPath, IncludeSubdirectories);
-            ChangeAlbumTagsButton.Background = Brushes.Green;
+            ChangeAlbumTagsButton.IsEnabled = false;
+
+            try
+            {
+                var folderPath = FolderPathTextBox.Text;
+                await ChangeAlbumTags.ChangeAlbumTagsOfFolderAsync(folderPath, IncludeSubdirectories);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message.ToString());
+            }
+
+            ChangeAlbumTagsButton.IsEnabled = true;
         }
 
-        private void SubdirectoriesButton_Click(object sender, RoutedEventArgs e)
+        private void SubdirectoriesCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (SubdirectoriesButton.Background == Brushes.Red)
+            if (SubdirectoriesCheckBox.IsChecked.Value)
             {
-                SubdirectoriesButton.Background = Brushes.Green;
                 IncludeSubdirectories = true;
             }
-            else
+        }
+
+        private void SubdirectoriesCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (SubdirectoriesCheckBox.IsChecked.Value == false)
             {
-                SubdirectoriesButton.Background = Brushes.Red;
                 IncludeSubdirectories = false;
             }
         }

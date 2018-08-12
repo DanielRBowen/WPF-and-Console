@@ -1,22 +1,54 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace TagFolderNameToAlbum
 {
     internal static class ChangeAlbumTags
     {
+        internal static async Task ChangeAlbumTagsOfFolderAsync(string folderPath, bool includeSubdirectories = false)
+        {
+            await Task.Delay(500);
+            await Task.Run(() => ChangeAlbumTagsOfFolder(folderPath, includeSubdirectories));
+            await Task.Delay(500);
+        }
+
         public static void ChangeAlbumTagsOfFolder(string folderPath, bool includeSubdirectories = false)
         {
-            var folderName = Path.GetFileName(folderPath);
-            var mp3FilePaths = Directory.EnumerateFiles(folderPath, "*.mp3", SearchOption.TopDirectoryOnly);
-
-            if (includeSubdirectories)
+            try
             {
-                mp3FilePaths = Directory.EnumerateFiles(folderPath, "*.mp3", SearchOption.AllDirectories);
+                if (!Directory.Exists(folderPath))
+                {
+                    throw new InvalidOperationException("Folder does not exist");
+                }
+
+                var folderName = Path.GetFileName(folderPath);
+                IEnumerable<string> mp3FilePaths;
+
+                if (includeSubdirectories)
+                {
+                    mp3FilePaths = TagsDirectory.GetFiles(folderPath, @"\.mp3|\.flac|\.ogg|\.wav", SearchOption.AllDirectories);
+                }
+                else
+                {
+                    mp3FilePaths = TagsDirectory.GetFiles(folderPath, @"\.mp3|\.flac|\.ogg|\.wav", SearchOption.TopDirectoryOnly);
+                }
+
+                if (mp3FilePaths.Count() == 0)
+                {
+                    throw new InvalidDataException("No mp3, flac, ogg, or wav files found in folder.");
+                }
+
+                foreach (var mp3FilePath in mp3FilePaths)
+                {
+                    ChangeAlbumOfFile(mp3FilePath, folderName);
+                }
             }
-
-            foreach (var mp3FilePath in mp3FilePaths)
+            catch (Exception exception)
             {
-                ChangeAlbumOfFile(mp3FilePath, folderName);
+                throw exception;
             }
         }
 
